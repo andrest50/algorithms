@@ -1,4 +1,5 @@
 import sys
+import random
 
 def selectionSort(A):
     for i in range(len(A)):
@@ -11,9 +12,13 @@ def selectionSort(A):
         A[minIndex] = A[i]
         A[i] = minInt
 
+def getNumbers(numbers, length):
+    for i in range(length):
+        numbers.append(random.randrange(1, 100))
 
 def main():
-    numbers = [4, 2, 3, 1, -3, 7, 5, 9]
+    numbers = []
+    getNumbers(numbers, 20)
     print("Before: {}".format(numbers))
     selectionSort(numbers)
     print("After: {}".format(numbers))

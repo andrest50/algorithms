@@ -1,4 +1,5 @@
 import sys
+import random
 
 def findMaxCrossingSubarray(A, low, mid, high):
     leftSum = -sys.maxsize
@@ -34,9 +35,15 @@ def findMaximumSubarray(A, low, high):
         else:
             return (crossLow, crossHigh, crossSum)
 
+def getNumbers(numbers, length):
+    for i in range(length):
+        numbers.append(random.randrange(-50, 50))
+
 def main():
-    numbers = [3, -5, 4, 2, -3, 5, -6, -1, 3]
+    numbers = []
+    getNumbers(numbers, 20)
     (low, high, total) = findMaximumSubarray(numbers, 0, len(numbers)-1)
+    print("List: {}".format(numbers))
     print("Low: {}, High: {}, Sum: {}".format(low, high, total))
 
 main()

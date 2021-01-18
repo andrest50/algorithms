@@ -1,4 +1,5 @@
 import sys
+import random
 
 minimum = sys.maxsize
 maximum = 0
@@ -16,9 +17,15 @@ def minAndMax(A, left, right):
     minAndMax(A, mid+1, right)
     return
 
+def getNumbers(numbers, length):
+    for i in range(length):
+        numbers.append(random.randrange(0, 100))
+
 def main():
-    numbers = [2, 1, 9, 7, 3, 6, 0, 2, 3]
+    numbers = []
+    getNumbers(numbers, 20)
     minAndMax(numbers, 0, len(numbers)-1)
+    print("List: {}".format(numbers))
     print("Min: {}, Max: {}".format(minimum, maximum))
 
 main()
